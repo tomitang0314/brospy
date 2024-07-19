@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const { analyzeCompetitorSite } = require('./competitorAnalysis');
-const handleFileUpload = require('./fileUploadHandler');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,13 +11,12 @@ app.use(express.json());
 app.post('/api/analyze', async (req, res) => {
   try {
     const result = await analyzeCompetitorSite(req.body.url);
-    res.json(result);
+    res.json({ success: true, pages: result });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Analysis error:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
-
-app.post('/api/upload', handleFileUpload);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

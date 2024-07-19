@@ -203,12 +203,12 @@ function analyzeCompetitor() {
   document.getElementById('analysisMessage').textContent = '开始分析...';
   document.getElementById('analysisProgress').style.display = 'block';
 
-  fetch('/analyze', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ url })
+  fetch('/api/analyze', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ url })
   })
   .then(response => {
       if (!response.ok) {
