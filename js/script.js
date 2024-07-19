@@ -4,15 +4,15 @@ let currentPreviewMode = 'desktop';
 let defaultPages = [
   {
     name: 'Home',
-    content: '<h1>歡迎來到我們的線上博弈平台</h1>\n\n<p>這裡是您探索刺激和娛樂的最佳選擇。我們提供多樣化的遊戲選擇，確保每位玩家都能找到自己喜愛的遊戲類型。</p>\n\n<h2>我們的特色</h2>\n\n<ul>\n<li>豐富的遊戲選擇</li>\n<li>安全可靠的平台</li>\n<li>24/7 客戶支援</li>\n<li>優惠多多，回饋不斷</li>\n</ul>\n\n<h2>立即開始您的遊戲之旅</h2>\n\n<p>註冊即可獲得豐厚的歡迎獎金。開始您的線上博弈冒險吧！</p>'
+    content: '<h1>欢迎来到我们的线上博弈平台</h1>\n\n<p>这里是您探索刺激和娱乐的最佳选择。我们提供多样化的游戏选择，确保每位玩家都能找到自己喜爱的游戏类型。</p>\n\n<h2>我们的特色</h2>\n\n<ul>\n<li>丰富的游戏选择</li>\n<li>安全可靠的平台</li>\n<li>24/7 客户支援</li>\n<li>优惠多多，回馈不断</li>\n</ul>\n\n<h2>立即开始您的游戏之旅</h2>\n\n<p>注册即可获得丰厚的欢迎奖金。开始您的线上博弈冒险吧！</p>'
   },
   {
     name: 'Games',
-    content: '<h1>我們的遊戲</h1>\n\n<p>探索我們豐富多樣的遊戲世界：</p>\n\n<h2>老虎機</h2>\n<p>從經典三輪到最新的視頻老虎機，應有盡有。</p>\n\n<h2>撲克</h2>\n<p>德州撲克、奧瑪哈等多種玩法，適合各種級別的玩家。</p>\n\n<h2>輪盤</h2>\n<p>歐洲輪盤、美式輪盤，體驗不同的刺激。</p>\n\n<h2>百家樂</h2>\n<p>簡單易懂，深受玩家喜愛的經典遊戲。</p>'
+    content: '<h1>我们的游戏</h1>\n\n<p>探索我们丰富多样的游戏世界：</p>\n\n<h2>老虎机</h2>\n<p>从经典三轮到最新的视频老虎机，应有尽有。</p>\n\n<h2>扑克</h2>\n<p>德州扑克、奥马哈等多种玩法，适合各种级别的玩家。</p>\n\n<h2>轮盘</h2>\n<p>欧洲轮盘、美式轮盘，体验不同的刺激。</p>\n\n<h2>百家乐</h2>\n<p>简单易懂，深受玩家喜爱的经典游戏。</p>'
   },
   {
     name: 'Promotions',
-    content: '<h1>優惠活動</h1>\n\n<p>在我們的平台，精彩優惠不斷！</p>\n\n<h2>新玩家歡迎獎金</h2>\n<p>首存最高可獲 100% 獎金，最高可達 $1000。</p>\n\n<h2>每週返水</h2>\n<p>每週享受高達 1% 的返水優惠。</p>\n\n<h2>VIP 計劃</h2>\n<p>成為 VIP 會員，享受專屬優惠和個人管家服務。</p>\n\n<h2>節日特別活動</h2>\n<p>在重要節日期間，我們會推出特別的優惠活動。敬請關注！</p>'
+    content: '<h1>优惠活动</h1>\n\n<p>在我们的平台，精彩优惠不断！</p>\n\n<h2>新玩家欢迎奖金</h2>\n<p>首存最高可获 100% 奖金，最高可达 $1000。</p>\n\n<h2>每周返水</h2>\n<p>每周享受高达 1% 的返水优惠。</p>\n\n<h2>VIP 计划</h2>\n<p>成为 VIP 会员，享受专属优惠和个人管家服务。</p>\n\n<h2>节日特别活动</h2>\n<p>在重要节日期间，我们会推出特别的优惠活动。敬请关注！</p>'
   }
 ];
 
@@ -33,8 +33,8 @@ function updatePageList() {
       <div class="page-item">
         <span>${page.name}</span>
         <div>
-          <button class="edit-btn">編輯</button>
-          ${index !== 0 ? `<button class="remove-btn">刪除</button>` : ''}
+          <button class="edit-btn">编辑</button>
+          ${index !== 0 ? `<button class="remove-btn">删除</button>` : ''}
         </div>
       </div>
       <div class="edit-area hidden">
@@ -72,7 +72,7 @@ function updatePreview() {
       <div class="${previewClass}">
           <div class="${document.getElementById('theme').value}">
               <header>
-                  <h1>${document.getElementById('siteName').value || '我的線上博弈網站'}</h1>
+                  <h1>${document.getElementById('siteName').value || '我的线上博弈网站'}</h1>
                   <nav>
                       <ul>
                           ${pages.map(p => `<li><a href="#" onclick="changePage('${p.name}'); return false;">${p.name}</a></li>`).join('')}
@@ -83,7 +83,7 @@ function updatePreview() {
                   ${currentPageContent}
               </main>
               <footer>
-                  <p>&copy; 2024 ${document.getElementById('siteName').value || '我的線上博弈網站'}. All rights reserved.</p>
+                  <p>&copy; 2024 ${document.getElementById('siteName').value || '我的线上博弈网站'}. All rights reserved.</p>
               </footer>
           </div>
       </div>
@@ -96,18 +96,18 @@ function addPage() {
   if (newPageName && !pages.some(page => page.name === newPageName)) {
     pages.push({
       name: newPageName,
-      content: `<h1>${newPageName}</h1>\n\n<p>這是 ${newPageName} 頁面的內容。</p>`
+      content: `<h1>${newPageName}</h1>\n\n<p>这是 ${newPageName} 页面的内容。</p>`
     });
     updatePageList();
     document.getElementById('newPageName').value = '';
     updatePreview();
   } else {
-    alert('請輸入有效的頁面名稱且不要重複');
+    alert('请输入有效的页面名称且不要重复');
   }
 }
 
 function removePage(index) {
-  if (confirm('確定要刪除這個頁面嗎？')) {
+  if (confirm('确定要删除这个页面吗？')) {
     pages.splice(index, 1);
     updatePageList();
     updatePreview();
@@ -133,7 +133,7 @@ function savePage(index) {
     updatePageList();
     updatePreview();
   } else {
-    alert('請輸入有效的頁面名稱且不要重複');
+    alert('请输入有效的页面名称且不要重复');
   }
 }
 
@@ -163,82 +163,90 @@ function uploadFile() {
   const file = fileInput.files[0];
 
   if (!file) {
-    document.getElementById('message').textContent = '請選擇一個文件。';
-    return;
+      document.getElementById('message').textContent = '请选择一个文件。';
+      return;
   }
 
   const formData = new FormData();
   formData.append('file', file);
 
   fetch('/upload', {
-    method: 'POST',
-    body: formData
+      method: 'POST',
+      body: formData
   })
   .then(response => response.json())
   .then(data => {
-    if (data.success) {
-      document.getElementById('message').textContent = '文件上傳成功。';
-      if (data.pages) {
-        pages = data.pages;
-        updatePageList();
-        updatePreview();
+      if (data.success) {
+          document.getElementById('message').textContent = '文件上传成功。';
+          if (data.pages) {
+              pages = data.pages;
+              updatePageList();
+              updatePreview();
+          }
+      } else {
+          document.getElementById('message').textContent = '文件上传失败：' + (data.message || '未知错误');
       }
-    } else {
-      document.getElementById('message').textContent = '文件上傳失敗：' + (data.message || '未知錯誤');
-    }
   })
   .catch(error => {
-    console.error('Upload error:', error);
-    document.getElementById('message').textContent = '上傳過程中發生錯誤：' + error.message;
+      console.error('Upload error:', error);
+      document.getElementById('message').textContent = '上传过程中发生错误：' + error.message;
   });
 }
 
 function analyzeCompetitor() {
   const url = document.getElementById('competitorUrl').value.trim();
   if (!url) {
-    document.getElementById('analysisMessage').textContent = '請輸入有效的競品網址';
-    return;
+      document.getElementById('analysisMessage').textContent = '请输入有效的竞品网址';
+      return;
   }
 
-  document.getElementById('analysisMessage').textContent = '開始分析...';
+  document.getElementById('analysisMessage').textContent = '开始分析...';
   document.getElementById('analysisProgress').style.display = 'block';
 
   fetch('/analyze', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ url })
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ url })
   })
-  .then(response => response.json())
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+  })
   .then(data => {
-    if (data.success && data.pages) {
-      displayResult(data.pages);
-    } else {
-      throw new Error(data.message || '分析失败');
-    }
+      if (data.success && data.pages) {
+          displayResult(data.pages);
+      } else {
+          throw new Error(data.message || '分析失败');
+      }
   })
   .catch(error => {
-    console.error('分析错误:', error);
-    document.getElementById('analysisMessage').textContent = '發生錯誤: ' + (error.message || '未知错误');
-    document.getElementById('analysisProgress').style.display = 'none';
+      console.error('分析错误:', error);
+      document.getElementById('analysisMessage').textContent = '发生错误: ' + (error.message || '未知错误');
+      document.getElementById('analysisProgress').style.display = 'none';
   });
 }
 
 function displayResult(result) {
   console.log('接收到的分析结果:', result);
   pages = result.map(page => ({
-    name: page['Page Name'],
-    content: page['Content']
+      name: page['Page Name'],
+      content: page['Content']
   }));
   updatePageList();
   if (pages.length > 0) {
-    currentPage = pages[0].name;
-    updatePreview();
+      currentPage = pages[0].name;
+      updatePreview();
   }
   document.getElementById('analysisMessage').textContent = '分析完成，页面已更新';
   document.getElementById('analysisProgress').style.display = 'none';
 }
+
+
+
 
 async function generateAndDownloadSite() {
   try {
@@ -253,8 +261,8 @@ async function generateAndDownloadSite() {
     window.saveAs(content, "website.zip");
 
   } catch (error) {
-    console.error("生成網站時出錯:", error);
-    alert("生成網站時出錯，請查看控制台以獲取更多信息。");
+    console.error("生成网站时出错:", error);
+    alert("生成网站时出错，请查看控制台以获取更多信息。");
   }
 }
 
@@ -269,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
   updatePageList();
   updatePreview();
 
-  // 添加新的事件監聽器
+  // 添加新的事件监听器
   const desktopPreviewBtn = document.querySelector('button[onclick="switchPreviewMode(\'desktop\')"]');
   const mobilePreviewBtn = document.querySelector('button[onclick="switchPreviewMode(\'mobile\')"]');
 
@@ -280,5 +288,5 @@ document.addEventListener('DOMContentLoaded', function() {
       mobilePreviewBtn.addEventListener('click', () => switchPreviewMode('mobile'));
   }
 
-  updatePreview(); // 初始化預覽
+  updatePreview(); // 初始化预览
 });
