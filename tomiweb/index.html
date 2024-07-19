@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>線上博弈靜態網站生成器 - SEO優化與響應式設計</title>
+  <meta name="description" content="專業的線上博弈靜態網站生成器 - 為您打造優質、合規的線上博弈平台">
+  <meta name="keywords" content="線上博弈, 靜態網站生成器, SEO優化, 響應式設計">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="settings">
+      <h1>線上博弈靜態網站生成器</h1>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">基本設置</h2>
+          <div class="accordion-content">
+            <div class="form-group">
+              <label for="siteName">網站名稱：</label>
+              <input type="text" id="siteName" placeholder="我的線上博弈網站" oninput="updatePreview()">
+            </div>
+            <div class="form-group">
+              <label for="logoUpload">上傳 Logo：</label>
+              <input type="file" id="logoUpload" accept="image/*" onchange="previewLogo(event)">
+              <img id="logoPreview" alt="Logo 預覽" style="display: none;">
+            </div>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <h2 class="accordion-header">頁面管理</h2>
+          <div class="accordion-content">
+            <ul id="pageList"></ul>
+            <div class="form-group">
+              <input type="text" id="newPageName" placeholder="輸入新頁面名稱">
+              <button class="btn" onclick="addPage()">新增頁面</button>
+            </div>
+            <div class="accordion-item">
+              <h2 id="競品分析" class="accordion-header">競品分析</h2>
+              <div class="accordion-content">
+                <div class="form-group">
+                  <input type="text" id="competitorUrl" placeholder="輸入競品網站URL">
+                  <button onclick="analyzeCompetitor()">分析</button>
+                </div>
+                <div id="analysisMessage"></div>
+                <div id="analysisProgress" style="display:none;">
+                  <progress id="progressBar" value="0" max="100"></progress>
+                  <p id="statusText"></p>
+                  <ul id="detailsList"></ul>
+                </div>
+              </div>
+            </div>         
+            <h1>Upload Excel to Update Content</h1>
+            <form id="uploadForm" enctype="multipart/form-data">
+              <input type="file" id="fileInput" name="file" accept=".xlsx,.xls">
+              <button onclick="uploadFile()">上傳</button>
+            </form>
+            <div id="message"></div>
+            <button type="button" id="resetButton">恢复预设</button>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <h2 class="accordion-header">主題與按鈕</h2>
+          <div class="accordion-content">
+            <div class="form-group">
+              <label for="theme">主題風格：</label>
+              <select id="theme" onchange="updatePreview()">
+                <option value="modern-minimal">現代簡約風格</option>
+                <option value="dark-tech">深色科技風格</option>
+                <option value="elegant-gold">優雅金色風格</option>
+                <option value="energetic-sport">活力運動風格</option>
+                <option value="luxury-gold-theme">奢華金色主題</option>
+                <option value="modern-black-gold-theme">現代黑金主題</option>
+                <option value="neon-dynamic-theme">霓虹動感主題</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Header 按鈕：</label>
+              <input type="text" id="headerButton1Name" placeholder="按鈕1名稱">
+              <input type="text" id="headerButton1Link" placeholder="按鈕1連結">
+              <input type="text" id="headerButton2Name" placeholder="按鈕2名稱">
+              <input type="text" id="headerButton2Link" placeholder="按鈕2連結">
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="action-buttons">
+        <button class="btn" onclick="switchPreviewMode('desktop')">桌面版預覽</button>
+        <button class="btn" onclick="switchPreviewMode('mobile')">手機版預覽</button>
+        <button class="btn primary" onclick="generateAndDownloadSite()">下載網站</button>
+      </div>
+    
+      <div id="output"></div>
+    </div>
+    <div id="preview"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="js/script.js"></script> <!-- 指向正確的JavaScript文件路徑 -->
+</body>
+
+</html>
